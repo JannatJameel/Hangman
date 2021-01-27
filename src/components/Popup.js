@@ -1,12 +1,15 @@
 import { PopupWrapper, Popup } from "../styles";
+import UIfx from 'uifx';
+import useSound from 'use-sound';
+import won from './souds/won.mp3';
 
 const PopAlert = ({selectedWord, correctLetters, wrongGuess, playAgain, wordLetters}) => {
     let finalMessage = "";
     let bodyMessage = "";
     let status = "";
+    const chear = new UIfx({asset: won});
 
-    const checkWin = (word, correct, wrong ) => {
- 
+    const checkWin = ( wrong ) => {
         if(correctLetters.length > 1){
             let wordLettersSet = new Set(wordLetters);
             status = "won";
@@ -19,13 +22,22 @@ const PopAlert = ({selectedWord, correctLetters, wrongGuess, playAgain, wordLett
     };
     console.log(status);
     
-    if(checkWin(selectedWord, correctLetters, wrongGuess) === "won"){
+    if(checkWin(wrongGuess) === "won"){
         finalMessage = "Wohooo you won!";
         bodyMessage = "Congratulations smarty pants.";
-    }else if (checkWin(selectedWord, correctLetters, wrongGuess) === "lost"){
+    }else if (checkWin(wrongGuess) === "lost"){
         finalMessage = "Opssie Woopsie...";
         bodyMessage = `The word was: ${selectedWord}`;
     };
+
+    // const [playWon] = useSound(won);
+    // let state = {
+    //     value: 0,
+    //   }
+    // onChange = (event) => {
+    //     this.setState({ value: event.target.value });
+    //     chear.play();
+    // };
 
     return (
         <PopupWrapper style={finalMessage !== ""? {display: "flex"} : {}}>
