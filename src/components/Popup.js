@@ -1,13 +1,13 @@
 import { PopupWrapper, Popup } from "../styles";
-import UIfx from 'uifx';
-import useSound from 'use-sound';
-import won from './souds/won.mp3';
+// import UIfx from 'uifx';
+// // import useSound from 'use-sound';
+// // import won from './souds/won.mp3';
 
 const PopAlert = ({selectedWord, correctLetters, wrongGuess, playAgain, wordLetters}) => {
     let finalMessage = "";
     let bodyMessage = "";
     let status = "";
-    const chear = new UIfx({asset: won});
+    // const chear = new UIfx({asset: won});
 
     const checkWin = ( wrong ) => {
         if(correctLetters.length > 1){

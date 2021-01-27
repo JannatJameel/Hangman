@@ -40,7 +40,7 @@ function App() {
     setWrongGuess(0);
     setHelp(null);
     selectedPerson = words[Math.floor(Math.random() * words.length)];
-    selectedWord =selectedPerson.word; 
+    selectedWord = selectedPerson.word; 
     keyColor = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   };
 
